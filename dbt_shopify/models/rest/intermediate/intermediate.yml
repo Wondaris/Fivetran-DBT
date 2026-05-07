@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: shopify__customers__order_aggregates
+  - name: shopify__orders__order_line_aggregates
+  - name: shopify__orders__order_refunds
+  - name: int_shopify__emails__order_aggregates
+  - name: int_shopify__customer_email_rollup
+  - name: int_shopify__inventory_level__aggregates
+  - name: int_shopify__discounts__order_aggregates
+  - name: int_shopify__discounts__abandoned_checkouts
+  - name: int_shopify__order__shipping_aggregates
+  - name: int_shopify__product__order_line_aggregates
+  - name: int_shopify__products_with_aggregates
