@@ -1,0 +1,189 @@
+version: 2
+
+models:
+
+  - name: hubspot__deals
+    description: Each record represents a deal in Hubspot.
+    columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+      - name: _fivetran_synced
+        description: '{{ doc("_fivetran_synced") }}'
+      - name: description
+        description: A brief description of the deal.
+      - name: amount
+        description: The total value of the deal in the deal's currency.
+      - name: closed_date
+        description: The day the deal is expected to close, or was closed.
+      - name: created_date
+        description: The date the deal was created. This property is set automatically by HubSpot.
+      - name: deal_id
+        description: The ID of the deal
+        tests:
+          - not_null
+      - name: deal_name
+        description: The name you have given this deal.
+      - name: merged_deal_ids
+        description: A list of deals that had previously been merged into this record.
+      - name: is_deal_deleted
+        description: '{{ doc("is_deleted") }}'
+      - name: is_deal_pipeline_deleted
+        description: '{{ doc("is_deleted") }}'
+      - name: is_deal_pipeline_stage_deleted
+        description: '{{ doc("is_deleted") }}'
+      - name: portal_id
+        description: '{{ doc("portal_id") }}'
+      - name: deal_pipeline_id
+        description: The ID of the deal's pipeline.
+      - name: deal_pipeline_stage_id
+        description: The ID of the deal's pipeline stage.
+      - name: owner_id
+        description: The ID of the deal's owner. 
+      - name: count_engagement_notes
+        description: "{{ doc('count_engagement_notes') }}"
+      - name: count_engagement_tasks
+        description: "{{ doc('count_engagement_tasks') }}"
+      - name: count_engagement_calls
+        description: "{{ doc('count_engagement_calls') }}"
+      - name: count_engagement_meetings
+        description: "{{ doc('count_engagement_meetings') }}"
+      - name: count_engagement_emails
+        description: "{{ doc('count_engagement_emails') }}"
+      - name: count_engagement_incoming_emails
+        description: "{{ doc('count_engagement_incoming_emails') }}"
+      - name: count_engagement_forwarded_emails
+        description: "{{ doc('count_engagement_forwarded_emails') }}"
+      - name: is_pipeline_active
+        description: Boolean indicating if the pipeline is active.
+      - name: pipeline_label
+        description: The label of the deal's pipeline.
+      - name: pipeline_stage_label
+        description: The label of the deal's pipeline stage.
+      - name: owner_email_address
+        description: The email address of the deal's owner.
+      - name: owner_full_name
+        description: The full name of the deal's owner.
+      - name: deal_pipeline_created_at
+        description: A timestamp representing when the deal_pipeline was created.
+      - name: deal_pipeline_updated_at
+        description: A timestamp representing when the deal_pipeline was updated.
+      - name: owner_active_user_id
+        description: Unique ID of the active HubSpot user who owns the deal.
+      - name: owner_primary_team_id
+        description: ID of the primary team assigned to the deal owner.
+      - name: owner_primary_team_name
+        description: Name of the primary team assigned to the deal owner.
+      - name: owner_all_team_ids
+        description: Comma-separated list of all team IDs associated with the deal owner.
+      - name: owner_all_team_names
+        description: Comma-separated list of all team names associated with the deal owner.
+      - name: owner_role_id
+        description: ID of the role assigned to the deal owner.
+      - name: owner_role_name
+        description: Name of the role assigned to the deal owner.
+
+  - name: hubspot__deal_stages
+    description: Each record represents when a deal stage changes in Hubspot, enriched with metrics about deal activities
+    columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+      - name: deal_stage_id
+        description: The unique deal stage identifier.
+        tests:
+          - not_null
+      - name: is_deal_pipeline_deleted
+        description: '{{ doc("is_deleted") }}'
+      - name: is_deal_pipeline_stage_deleted
+        description: '{{ doc("is_deleted") }}'
+      - name: is_deal_deleted
+        description: '{{ doc("is_deleted") }}'
+      - name: date_stage_entered
+        description: The timestamp the deal stage was entered.
+      - name: date_stage_exited
+        description: The Fivetran calculated exit time of the deal stage.
+      - name: is_stage_active
+        description: Boolean indicating whether the deal stage active.
+      - name: deal_id
+        description: The ID of the deal.
+      - name: merged_deal_ids
+        description: A list of deals that had previously been merged into this record.
+      - name: pipeline_id
+        description: The ID of the deal's pipeline.
+      - name: pipeline_stage_id
+        description: The ID of the deal's pipeline stage.
+      - name: pipeline_label
+        description: The label of the deal's pipeline.
+      - name: is_pipeline_active
+        description: Boolean indicating if the pipeline is active.
+      - name: is_pipeline_stage_active
+        description: Boolean indicating if the pipeline stage is active.
+      - name: pipeline_stage_label
+        description: The label of the deal's pipeline stage.
+      - name: source
+        description: The relevant source of the deal stage.
+      - name: source_id
+        description: Reference to the source.
+      - name: is_pipeline_stage_closed
+        description: Boolean indicating if the pipeline stage is closed. For the state of the closed deal, refer to the pipeline_stage_label column.
+      - name: pipeline_stage_display_order
+        description: Used to determine the order in which the stages appear when viewed in HubSpot.
+      - name: pipeline_display_order
+        description: Used to determine the order in which the pipelines appear when viewed in HubSpot.
+      - name: pipeline_stage_probability
+        description: The probability that the deal will close. Used for the deal forecast.
+      - name: deal_name
+        description: The name you have given this deal.
+      - name: deal_pipeline_stage_created_at
+        description: A timestamp representing when the deal_pipeline_stage was created.
+      - name: deal_pipeline_stage_updated_at
+        description: A timestamp representing when the deal_pipeline_stage was updated.
+
+  - name: hubspot__companies
+    description: Each record represents a company in Hubspot.
+    columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+      - name: company_id
+        description: The ID of the company.
+        tests:
+          - not_null
+      - name: portal_id
+        description: '{{ doc("portal_id") }}'
+      - name: is_company_deleted
+        description: '{{ doc("is_deleted") }}'
+      - name: count_engagement_notes
+        description: "{{ doc('count_engagement_notes') }}"
+      - name: count_engagement_tasks
+        description: "{{ doc('count_engagement_tasks') }}"
+      - name: count_engagement_calls
+        description: "{{ doc('count_engagement_calls') }}"
+      - name: count_engagement_meetings
+        description: "{{ doc('count_engagement_meetings') }}"
+      - name: count_engagement_emails
+        description: "{{ doc('count_engagement_emails') }}"
+      - name: count_engagement_incoming_emails
+        description: "{{ doc('count_engagement_incoming_emails') }}"
+      - name: count_engagement_forwarded_emails
+        description: "{{ doc('count_engagement_forwarded_emails') }}"
+
+  - name: hubspot__engagements
+    description: Each record represents an engagement
+    columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+      - name: _fivetran_synced
+        description: '{{ doc("_fivetran_synced") }}'
+      - name: engagement_id
+        description: The ID of the engagement.
+        tests:
+          - not_null
+      - name: engagement_type
+        description: One of NOTE, EMAIL, TASK, MEETING, or CALL, the type of the engagement.
+      - name: portal_id
+        description: '{{ doc("portal_id") }}'
+      - name: contact_ids
+        description: List of contacts related to the engagement.
+      - name: deal_ids
+        description: List of deals related to the engagement.
+      - name: company_ids
+        description: List of companies related to the engagement.

@@ -1,0 +1,427 @@
+<!--section="hubspot_transformation_model"-->
+# Hubspot dbt Package
+
+This dbt package transforms data from Fivetran's Hubspot connector into analytics-ready tables.
+
+## Resources
+
+- Number of materialized models¹: 147
+- Connector documentation
+  - [Hubspot connector documentation](https://fivetran.com/docs/connectors/applications/hubspot)
+  - [Hubspot ERD](https://fivetran.com/docs/connectors/applications/hubspot#schemainformation)
+- dbt package documentation
+  - [GitHub repository](https://github.com/fivetran/dbt_hubspot)
+  - [dbt Docs](https://fivetran.github.io/dbt_hubspot/#!/overview)
+  - [DAG](https://fivetran.github.io/dbt_hubspot/#!/overview?g_v=1)
+  - [Changelog](https://github.com/fivetran/dbt_hubspot/blob/main/CHANGELOG.md)
+- dbt Core™ supported versions
+  - `>=1.3.0, <3.0.0`
+
+## What does this dbt package do?
+This package enables you to better understand your HubSpot email and engagement performance and generates comprehensive data dictionaries. It creates enriched models with metrics focused on contacts, companies, deals, and analysis-ready event tables for email and engagement activities.
+
+### Output schema
+Final output tables are generated in the following target schema:
+
+```
+<your_database>.<connector/schema_name>_hubspot
+```
+
+### Final output tables
+
+By default, this package materializes the following final tables:
+
+| Table | Description |
+| :---- | :---- |
+| [hubspot__companies](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__companies) | Each record represents a company in Hubspot, enriched with metrics about engagement activities.<br><br>**Example Analytics Questions:**<br><ul><li>Which companies receive many emails but send few replies?</li><li>Which industries or regions have the most engaged companies?</li></ul> |
+| [hubspot__company_history](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__company_history) | Each record represents a change to a company in Hubspot, with `valid_to` and `valid_from` information.<br><br>**Example Analytics Questions:**<br><ul><li>Which companies change owners or lifecycle stages most often?</li><li>How long after updating company details do deals typically get created?</li></ul> |
+| [hubspot__contacts](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__contacts) | Each record represents a contact in Hubspot, enriched with metrics about email and engagement activities.<br><br>**Example Analytics Questions:**<br><ul><li>Which job titles have the highest email open and click rates?</li><li>Do contacts prefer calls and meetings or email?</li></ul> |
+| [hubspot__contact_history](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__contact_history) | Each record represents a change to a contact in Hubspot, with `valid_to` and `valid_from` information.<br><br>**Example Analytics Questions:**<br><ul><li>What is the typical progression timeline of contact lifecycle stage changes from "lead" to "customer"?</li><li>What proportion of contacts revert to earlier lifecycle stages?</li></ul> |
+| [hubspot__contact_lists](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__contact_lists) | Each record represents a contact list in Hubspot, enriched with metrics about email activities.<br><br>**Example Analytics Questions:**<br><ul><li>Which contact lists have the highest click-to-open ratios and lowest unsubscribe rates?</li><li>Which contact lists show high bounce rates or low delivery rates?</li></ul> |
+| [hubspot__deals](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__deals) | Each record represents a deal in Hubspot, enriched with metrics about engagement activities.<br><br>**Example Analytics Questions:**<br><ul><li>How do won deals differ from lost deals in engagement activity?</li><li>Which high-value deals have low engagement and may be at risk?</li></ul> |
+| [hubspot__deal_stages](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__deal_stages) | Each record represents when a deal stage changes in Hubspot, with stage entry/exit dates and pipeline metadata.<br><br>**Example Analytics Questions:**<br><ul><li>Which pipeline stages have the highest drop-off rates?</li><li>Which deals are currently in stages longer than the historical average, indicating stalled opportunities?</li></ul> |
+| [hubspot__deal_history](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__deal_history) | Each record represents a change to a deal in Hubspot, with `valid_to` and `valid_from` information.<br><br>**Example Analytics Questions:**<br><ul><li>How do deal amounts fluctuate throughout the sales cycle?</li><li>Which deals have experienced frequent ownership transfers or reassignments, possibly slowing progress?</li></ul> |
+| [hubspot__tickets](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__tickets) | Each record represents a ticket in Hubspot, enriched with metrics about engagement activities and information on associated deals, contacts, companies, and owners.<br><br>**Example Analytics Questions:**<br><ul><li>Which currently open tickets are linked to high-value customers or companies and should be prioritized?</li><li>Which customers generate the highest support volume relative to their deal size or lifetime value?</li></ul> |
+| [hubspot__daily_ticket_history](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__daily_ticket_history) | Each record represents a ticket's day in Hubspot with tracked properties pivoted out into columns.<br><br>**Example Analytics Questions:**<br><ul><li>How long did tickets spend in each pipeline stage on average last quarter?</li><li>What is the distribution of ticket ages by priority level and pipeline stage?</li></ul> |
+| [hubspot__email_campaigns](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__email_campaigns) | Each record represents a email campaign in Hubspot, enriched with metrics about email activities.<br><br>**Example Analytics Questions:**<br><ul><li>What is the click-to-open ratio by campaign type (newsletter vs. promotional vs. nurture)?</li><li>What is the relationship between a campaign's number of messages and recipient engagement?</li></ul> |
+| [hubspot__email_event_*](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__email_event_bounce) | Each record represents an email event in Hubspot, joined with relevant tables to make them analysis-ready.<br><br>**Example Analytics Questions:**<br><ul><li>How do spam reports vary by sender domain or audience source?</li><li>Which links or CTAs receive the most clicks?</li></ul> |
+| [hubspot__email_sends](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__email_sends) | Each record represents a sent email in Hubspot, enriched with metrics about opens, clicks, and other email activity.<br><br>**Example Analytics Questions:**<br><ul><li>Which recipient domains have the highest bounce rates?</li><li>What are the optimal send timing patterns based on open and click performance across different contact segments?</li></ul> |
+| [hubspot__engagements](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__engagements) | Each record represents an engagement in Hubspot, enriched with contact, company, and deal information.<br><br>**Example Analytics Questions:**<br><ul><li>Which sales reps log the highest number of engagements overall, and what is their activity mix (calls vs. emails vs. meetings)?</li><li>What is the average time between customer-initiated engagement (e.g., inbound email) and follow-up activity from reps?</li></ul> |
+| [hubspot__engagement_*](https://fivetran.github.io/dbt_hubspot/#!/model/model.hubspot.hubspot__engagement_calls) | Each record represents an engagement event in Hubspot, joined with relevant tables to make them analysis-ready.<br><br>**Example Analytics Questions:**<br><ul><li>What are the busiest call days and times for successful connections?</li><li>Which reps consistently schedule follow-up meetings after initial contact?</li></ul> |
+
+¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
+
+---
+
+## Prerequisites
+To use this dbt package, you must have the following:
+
+- At least one Fivetran HubSpot connection syncing data into your destination.
+- A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
+
+## How do I use the dbt package?
+You can either add this dbt package in the Fivetran dashboard or import it into your dbt project:
+
+- To add the package in the Fivetran dashboard, follow our [Quickstart guide](https://fivetran.com/docs/transformations/data-models/quickstart-management).
+- To add the package to your dbt project, follow the setup instructions in the dbt package's [README file](https://github.com/fivetran/dbt_hubspot/blob/main/README.md#how-do-i-use-the-dbt-package) to use this package.
+
+<!--section-end-->
+
+### Install the package
+Include the following hubspot package version in your `packages.yml` file:
+> TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
+```yaml
+packages:
+  - package: fivetran/hubspot
+    version: [">=1.7.0", "<1.8.0"] # we recommend using ranges to capture non-breaking changes automatically
+```
+> All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/hubspot_source` in your `packages.yml` since this package has been deprecated.
+
+#### Database Incremental Strategies
+Many of the models in this package are materialized incrementally, so we have configured our models to work with the different strategies available to each supported warehouse.
+
+For **BigQuery** and **Databricks All Purpose Cluster runtime** destinations, we have chosen `insert_overwrite` as the default strategy, which benefits from the partitioning capability.
+> For Databricks SQL Warehouse destinations, models are materialized as tables without support for incremental runs.
+
+For **Snowflake**, **Redshift**, and **Postgres** databases, we have chosen `delete+insert` as the default strategy.
+
+> Regardless of strategy, we recommend that users periodically run a `--full-refresh` to ensure a high level of data quality.
+
+#### Databricks dispatch configuration
+If you are using a Databricks destination with this package, you must add the following (or a variation of the following) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
+```yml
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
+```
+
+### Define database and schema variables
+
+#### Option A: Single connection
+By default, this package runs using your [destination](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile) and the `hubspot` schema. If this is not where your hubspot data is (for example, if your hubspot schema is named `hubspot_fivetran`), add the following configuration to your root `dbt_project.yml` file:
+
+```yml
+vars:
+    hubspot:
+        hubspot_database: your_database_name
+        hubspot_schema: your_schema_name
+```
+
+#### Option B: Union multiple connections
+If you have multiple hubspot connections in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. For each source table, the package will union all of the data together and pass the unioned table into the transformations. The `source_relation` column in each model indicates the origin of each record.
+
+To use this functionality, you will need to set the `hubspot_sources` variable in your root `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+vars:
+    hubspot:
+        hubspot_sources:
+        - database: connection_1_destination_name # Required
+          schema: connection_1_schema_name # Required
+          name: connection_1_source_name # Required only if following the step in the following subsection
+
+        - database: connection_2_destination_name
+          schema: connection_2_schema_name
+          name: connection_2_source_name
+```
+
+##### Recommended: Incorporate unioned sources into DAG
+> *If you are running the package through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt#transformationsfordbtcore), the below step is necessary in order to synchronize model runs with your hubspot connections. Alternatively, you may choose to run the package through Fivetran [Quickstart](https://fivetran.com/docs/transformations/quickstart), which would create separate sets of models for each hubspot source rather than one set of unioned models.*
+
+By default, this package defines one single-connection source, called `hubspot`, which will be disabled if you are unioning multiple connections. This means that your DAG will not include your hubspot sources, though the package will run successfully.
+
+To properly incorporate all of your hubspot connections into your project's DAG:
+1. Define each of your sources in a `.yml` file in your project. Utilize the following template for the `source`-level configurations, and, **most importantly**, copy and paste the table and column-level definitions from the package's `src_hubspot.yml` [file](https://github.com/fivetran/dbt_hubspot/blob/main/models/staging/src_hubspot.yml).
+
+```yml
+# a .yml file in your root project
+
+version: 2
+
+sources:
+- name: <name> # ex: Should match name in hubspot_sources
+  schema: <schema_name>
+  database: <database_name>
+  loader: fivetran
+  config:
+    loaded_at_field: _fivetran_synced
+    freshness: # feel free to adjust to your liking
+      warn_after: {count: 72, period: hour}
+      error_after: {count: 168, period: hour}
+
+  tables: # copy and paste from hubspot/models/staging/src_hubspot.yml - see https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors/ for how to use anchors to only do so once
+```
+
+> **Note**: If there are source tables you do not have (see [Disable/enable models and sources](https://github.com/fivetran/dbt_hubspot?tab=readme-ov-file#disableenable-models-and-sources)), you may still include them, as long as you have set the right variables to `False`.
+
+2. Set the `has_defined_sources` variable (scoped to the `hubspot` package) to `True`, like such:
+```yml
+# dbt_project.yml
+vars:
+    hubspot:
+        has_defined_sources: true
+```
+
+### Disable/enable models and sources
+When setting up your Hubspot connection in Fivetran, it is possible that not every table this package expects will be synced. This can occur because you either don't use that functionality in Hubspot or have actively decided to not sync some tables. Therefore we have added enable/disable configs in the `src.yml` to allow you to disable certain sources not present. Downstream models are automatically disabled as well. In order to disable the relevant functionality in the package, you will need to add the relevant variables in your root `dbt_project.yml`. 
+
+By default, all variables are assumed to be `true`, **with the exception of the below**. These default to `false` and must be explicitly enabled if needed:
+
+- `hubspot_service_enabled`
+- `hubspot_ticket_deal_enabled`
+- `hubspot_contact_merge_audit_enabled`
+- `hubspot_merged_deal_enabled`
+- `hubspot_engagement_communication_enabled`
+
+You only need to add variables for the sources that differ from their defaults. To do so, add the relevant variable configuration from below to your `dbt_project.yml`:
+
+```yml
+vars:
+  # Marketing
+
+  hubspot_marketing_enabled: false                        # Disables all marketing models
+  hubspot_contact_enabled: false                          # Disables the contact models
+  hubspot_contact_form_enabled: false                     # Disables form and contact form submission data and its relationship to contacts
+  hubspot_contact_list_enabled: false                     # Disables contact list models
+  hubspot_contact_list_member_enabled: false              # Disables contact list member models
+  hubspot_contact_merge_audit_enabled: true               # Enables the use of the CONTACT_MERGE_AUDIT table (deprecated by Hubspot v3 API) for removing merged contacts in the final models.
+                                                          # If false, contacts will still be merged using the CONTACT.property_hs_calculated_merged_vids field.
+                                                          # Default = False
+  hubspot_contact_property_enabled: false                 # Disables the contact property models
+  hubspot_contact_property_history_enabled: false         # Disables the contact property history models
+  hubspot_email_event_enabled: false                      # Disables all email_event models and functionality
+  hubspot_email_event_bounce_enabled: false
+  hubspot_email_event_click_enabled: false
+  hubspot_email_event_deferred_enabled: false
+  hubspot_email_event_delivered_enabled: false
+  hubspot_email_event_dropped_enabled: false
+  hubspot_email_event_forward_enabled: false
+  hubspot_email_event_click_enabled: false
+  hubspot_email_event_open_enabled: false
+  hubspot_email_event_print_enabled: false
+  hubspot_email_event_sent_enabled: false
+  hubspot_email_event_spam_report_enabled: false
+  hubspot_email_event_status_change_enabled: false
+
+  # Sales
+
+  hubspot_sales_enabled: false                            # Disables all sales models
+  hubspot_company_enabled: false
+  hubspot_company_property_history_enabled: false         # Disables the company property history models
+  hubspot_deal_enabled: false
+  hubspot_deal_company_enabled: false
+  hubspot_deal_contact_enabled: false
+  hubspot_deal_property_history_enabled: false            # Disables the deal property history models
+  hubspot_engagement_enabled: false                       # Disables all engagement models and functionality
+  hubspot_engagement_call_enabled: false
+  hubspot_engagement_company_enabled: false
+  hubspot_engagement_communication_enabled: true          # Enables the link between communications and engagements. Default = False
+  hubspot_engagement_contact_enabled: false
+  hubspot_engagement_deal_enabled: false
+  hubspot_engagement_email_enabled: false
+  hubspot_engagement_meeting_enabled: false
+  hubspot_engagement_note_enabled: false
+  hubspot_engagement_task_enabled: false
+  hubspot_merged_deal_enabled: true                       # Enables the merged_deal table to filter merged deals from final models. Default = False
+  hubspot_owner_enabled: false
+  hubspot_property_enabled: false                         # Disables property and property_option tables
+  hubspot_role_enabled: false                             # Disables role metadata
+  hubspot_team_enabled: false                             # Disables team metadata
+  hubspot_team_user_enabled: false                        # Disables user-to-team relationships
+
+  # Service
+  hubspot_service_enabled: true                           # Enables all service models. Default = False
+  hubspot_ticket_deal_enabled: true                       # Enables ticket_deal transformations. Default = False
+```
+
+### (Optional) Additional configurations
+
+#### Configure email metrics
+This package allows you to specify which email metrics (total count and total unique count) you would like to be calculated for specified fields within the `hubspot__email_campaigns` model. By default, the `email_metrics` variable below includes all the shown fields. If you would like to remove any field metrics from the final model, you may copy and paste the below snippet within your root `dbt_project.yml` and remove any fields you want to be ignored in the final model.
+
+```yml
+vars:
+  email_metrics: ['bounces',      #Remove if you do not want metrics in final model.
+                  'clicks',       #Remove if you do not want metrics in final model.
+                  'deferrals',    #Remove if you do not want metrics in final model.
+                  'deliveries',   #Remove if you do not want metrics in final model.
+                  'drops',        #Remove if you do not want metrics in final model.
+                  'forwards',     #Remove if you do not want metrics in final model.
+                  'opens',        #Remove if you do not want metrics in final model.
+                  'prints',       #Remove if you do not want metrics in final model.
+                  'spam_reports', #Remove if you do not want metrics in final model.
+                  'unsubscribes'  #Remove if you do not want metrics in final model.
+                  ]
+```
+#### Include passthrough columns
+This package includes all source columns defined in the macros folder. We highly recommend including custom fields in this package as models now only bring in a few fields for the `company`, `contact`, `deal`, and `ticket` tables. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables in your root `dbt_project.yml`.
+
+```yml
+vars:
+  hubspot__deal_pass_through_columns:
+    - name:           "property_field_new_id"
+      alias:          "new_name_for_this_field_id"
+      transform_sql:  "cast(new_name_for_this_field as int64)"
+    - name:           "this_other_field"
+      transform_sql:  "cast(this_other_field as string)"
+  hubspot__contact_pass_through_columns:
+    - name:           "wow_i_can_add_all_my_custom_fields"
+      alias:          "best_field"
+  hubspot__company_pass_through_columns:
+    - name:           "this_is_radical"
+      alias:          "radical_field"
+      transform_sql:  "cast(radical_field as string)"
+  hubspot__ticket_pass_through_columns:
+    - name:           "property_mmm"
+      alias:          "mmm"
+    - name:           "property_bop"
+      alias:          "bop"
+```
+**Alternatively**, if you would like to simply pass through **all columns** in the above four tables, add the following configuration to your dbt_project.yml. Note that this will override any `hubspot__[table_name]_pass_through_columns` variables.
+
+```yml
+vars:
+  hubspot__pass_through_all_columns: true # default is false
+```
+#### Adding property label
+For `property_hs_*` columns, you can enable the corresponding, human-readable `property_option`.`label` to be included in the staging models.
+
+##### Important
+- You must have sources `property` and `property_option` enabled to enable labels. By default, these sources are enabled.
+- You CANNOT enable labels if using `hubspot__pass_through_all_columns: true`.
+- We recommend being selective with the label columns you add. As you add more label columns, your run time will increase due to the underlying logic requirements.
+
+To enable labels for a given property, set the property attribute `add_property_label: true`, using the below format.
+
+```yml
+vars:
+  hubspot__ticket_pass_through_columns:
+    - name: "property_hs_fieldname"
+      alias: "fieldname"
+      add_property_label: true
+```
+Alternatively, you can enable labels for all passthrough properties by using variable `hubspot__enable_all_property_labels: true`, formatted like the below example.
+
+```yml
+vars:
+  hubspot__enable_all_property_labels: true
+  hubspot__ticket_pass_through_columns:
+    - name: "property_hs_fieldname1"
+    - name: "property_hs_fieldname2"
+```
+
+#### Including calculated fields
+This package also provides the ability to pass calculated fields through to the `company`, `contact`, `deal`, and `ticket` staging models. If you would like to add a calculated field to any of the mentioned staging models, you may configure the respective `hubspot__[table_name]_calculated_fields` variables with the `name` of the field you would like to create, and the `transform_sql` which will be the actual calculation that will make up the calculated field.
+```yml
+vars:
+  hubspot__deal_calculated_fields:
+    - name:          "deal_calculated_field"
+      transform_sql: "existing_field * other_field"
+  hubspot__company_calculated_fields:
+    - name:          "company_calculated_field"
+      transform_sql: "concat(name_field, '_company_name')"
+  hubspot__contact_calculated_fields:
+    - name:          "contact_calculated_field"
+      transform_sql: "contact_revenue - contact_expense"
+  hubspot__ticket_calculated_fields:
+    - name:          "ticket_calculated_field"
+      transform_sql: "total_field / other_total_field"
+```
+#### Filtering email events
+When leveraging email events, HubSpot customers may take advantage of filtering out specified email events. These filtered email events are present within the `stg_hubspot__email_events` model and are identified by the `is_filtered_event` boolean field. By default, these events are included in the staging and downstream models generated from this package. However, if you wish to remove these filtered events you may do so by setting the `hubspot_using_all_email_events` variable to false. See below for exact configurations you may provide in your `dbt_project.yml` file:
+```yml
+vars:
+  hubspot_using_all_email_events: false # True by default
+```
+
+#### Daily ticket history
+The `hubspot__daily_ticket_history` model is disabled by default, but will materialize if `hubspot_service_enabled` is set to `true`. See additional configurations for this model below.
+
+> **Note**: `hubspot__daily_ticket_history` and its parent intermediate models are incremental. After making any of the below configurations, you will need to run a full refresh.
+
+##### **Tracking ticket properties**
+By default, `hubspot__daily_ticket_history` will track each ticket's state, pipeline, and pipeline stage and pivot these properties into columns. However, any property from the source `TICKET_PROPERTY_HISTORY` table can be tracked and pivoted out into columns. To add other properties to this end model, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+vars:
+  hubspot__ticket_property_history_columns:
+    - the
+    - list
+    - of 
+    - property
+    - names
+```
+
+##### **Extending ticket history past closing date**
+This package will create a row in `hubspot__daily_ticket_history` for each day that a ticket is open, starting at its creation date. A Hubspot ticket can be altered after being closed, so its properties can change after this date.
+
+By default, the package will track a ticket up to its closing date (or the current date if still open). To capture post-closure changes, you may want to extend a ticket's history past the close date. To do so, add the following configuration to your root dbt_project.yml file:
+
+```yml
+vars:
+  hubspot:
+    ticket_history_extension_days: integer_number_of_days # default = 0
+```
+
+#### Changing the Build Schema
+By default this package will build the HubSpot staging models within a schema titled (<target_schema> + `_stg_hubspot`) and HubSpot final models within a schema titled (<target_schema> + `hubspot`) in your target database. If this is not where you would like your modeled HubSpot data to be written to, add the following configuration to your root `dbt_project.yml` file:
+
+```yml
+models:
+    hubspot:
+      +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
+      staging:
+        +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
+```
+
+#### Change the source table references
+If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
+
+> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_hubspot/blob/main/dbt_project.yml) variable declarations to see the expected names.
+
+```yml
+vars:
+    hubspot_<default_source_table_name>_identifier: your_table_name
+```
+
+### (Optional) Orchestrate your models with Fivetran Transformations for dbt Core™
+<details><summary>Expand for details</summary>
+<br>
+
+Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt#transformationsfordbtcore). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core™ setup guides](https://fivetran.com/docs/transformations/dbt/setup-guide#transformationsfordbtcoresetupguide).
+</details>
+
+## Does this package have dependencies?
+This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
+> IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
+
+```yml
+packages:
+    - package: fivetran/fivetran_utils
+      version: [">=0.4.0", "<0.5.0"]
+
+    - package: dbt-labs/dbt_utils
+      version: [">=1.0.0", "<2.0.0"]
+
+    - package: dbt-labs/spark_utils
+      version: [">=0.3.0", "<0.4.0"]
+```
+
+<!--section="hubspot_maintenance"-->
+## How is this package maintained and can I contribute?
+
+### Package Maintenance
+The Fivetran team maintaining this package only maintains the [latest version](https://hub.getdbt.com/fivetran/hubspot/latest/) of the package. We highly recommend you stay consistent with the latest version of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_hubspot/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
+
+### Contributions
+A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions.
+
+We highly encourage and welcome contributions to this package. Learn how to contribute to a package in dbt's [Contributing to an external dbt package article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657).
+
+<!--section-end-->
+
+## Are there any resources available?
+- If you have questions or want to reach out for help, see the [GitHub Issue](https://github.com/fivetran/dbt_hubspot/issues/new/choose) section to find the right avenue of support for you.
+- If you would like to provide feedback to the dbt package team at Fivetran or would like to request a new dbt package, fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).
