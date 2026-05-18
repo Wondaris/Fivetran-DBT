@@ -2,14 +2,12 @@ wndrs_profile:
   outputs:
     prod:
       dataset: "{{ var('wndrs_client_bq_dataset') }}"
-      shopify_schema: "{{ var('wndrs_client_bq_dataset') }}"
       fixed_retries: 1
       keyfile: /usr/dbt-service/warehouse_config/bigquery/sa.json
       location: "{{ var('wndrs_client_bq_region') }}"
       method: service-account
       priority: interactive
       project: "{{ var('wndrs_client_bq_project_id') }}"
-      shopify_database: "{{ var('wndrs_client_bq_project_id') }}"
       threads: 1
       timeout_seconds: "{{ var('dbt_timeout_seconds', 3600) }}"
       type: bigquery

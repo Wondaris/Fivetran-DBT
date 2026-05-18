@@ -6,7 +6,13 @@ config-version: 2
 require-dbt-version: [">=1.3.0", "<3.0.0"]
 
 vars:
+  hubspot_schema: "{{ var('wndrs_client_bq_dataset') }}"
+  hubspot_database: "{{ var('wndrs_client_bq_project_id') }}"
+
   hubspot:
+    hubspot_schema: "{{ var('wndrs_client_bq_dataset') }}"
+    hubspot_database: "{{ var('wndrs_client_bq_project_id') }}"
+
     company: "{{ source('hubspot','company') }}"
     company_property_history: "{{ source('hubspot','company_property_history') }}"
     contact: "{{ source('hubspot','contact') }}"

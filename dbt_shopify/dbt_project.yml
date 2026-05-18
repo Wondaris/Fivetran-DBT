@@ -39,7 +39,12 @@ models:
           +materialized: table
 
 vars:
+  shopify_schema: "{{ var('wndrs_client_bq_dataset') }}"
+  shopify_database: "{{ var('wndrs_client_bq_project_id') }}"
+
   shopify:
+    shopify_schema: "{{ var('wndrs_client_bq_dataset') }}"
+    shopify_database: "{{ var('wndrs_client_bq_project_id') }}"
     customer_source: "{{ source('shopify','customer') }}"
     order_line_refund_source: "{{ source('shopify','order_line_refund') }}"
     order_line_source: "{{ source('shopify','order_line') }}"
