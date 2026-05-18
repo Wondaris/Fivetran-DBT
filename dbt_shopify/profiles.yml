@@ -2,6 +2,7 @@ wndrs_profile:
   outputs:
     prod:
       dataset: "{{ var('wndrs_client_bq_dataset') }}"
+      mailchimp_schema: "{{ var('wndrs_client_bq_dataset') }}"
       fixed_retries: 1
       keyfile: /usr/dbt-service/warehouse_config/bigquery/sa.json
       location: "{{ var('wndrs_client_bq_region') }}"
