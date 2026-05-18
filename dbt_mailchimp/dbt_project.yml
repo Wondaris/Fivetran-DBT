@@ -17,13 +17,7 @@ models:
         +materialized: view
 
 vars:
-  mailchimp_schema: "{{ var('wndrs_client_bq_dataset') }}"
-  mailchimp_database: "{{ var('wndrs_client_bq_project_id') }}"
-
   mailchimp:
-    mailchimp_schema: "{{ var('wndrs_client_bq_dataset') }}"
-    mailchimp_database: "{{ var('wndrs_client_bq_project_id') }}"
-
     automation: "{{ source('mailchimp','automation') }}"
     automation_email: "{{ source('mailchimp','automation_email') }}"
     automation_recipient: "{{ source('mailchimp','automation_recipient') }}"
