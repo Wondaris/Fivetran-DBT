@@ -1,0 +1,1572 @@
+{
+  "enable_new_by_default": true,
+  "schemas": {
+    "huyen_org_shopify_670_1784774061": {
+      "name_in_destination": "huyen_org_shopify_670_1784774061",
+      "enabled": true,
+      "tables": {
+        "abandoned_applied_discount": {
+          "name_in_destination": "abandoned_applied_discount",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "abandoned_checkout": {
+          "name_in_destination": "abandoned_checkout",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "abandoned_checkout_discount_code": {
+          "name_in_destination": "abandoned_checkout_discount_code",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "abandoned_checkout_line": {
+          "name_in_destination": "abandoned_checkout_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "abandoned_checkout_shipping_line": {
+          "name_in_destination": "abandoned_checkout_shipping_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "abandoned_checkout_tax_line": {
+          "name_in_destination": "abandoned_checkout_tax_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "abandoned_checkout_url_tag": {
+          "name_in_destination": "abandoned_checkout_url_tag",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "adjustment_order_transaction": {
+          "name_in_destination": "adjustment_order_transaction",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "Shopify API failed with HTTP error :HTTP 404 Not Found"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "alert_displayed_event": {
+          "name_in_destination": "alert_displayed_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "app": {
+          "name_in_destination": "app",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "applied_gift_card": {
+          "name_in_destination": "applied_gift_card",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "balance_transaction": {
+          "name_in_destination": "balance_transaction",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "Shopify API failed with HTTP error :HTTP 404 Not Found"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "bundle_component": {
+          "name_in_destination": "bundle_component",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "bundle_component_option_selection": {
+          "name_in_destination": "bundle_component_option_selection",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "bundle_component_variant": {
+          "name_in_destination": "bundle_component_variant",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "cart_attribute_event": {
+          "name_in_destination": "cart_attribute_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "cart_line_event": {
+          "name_in_destination": "cart_line_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "cart_viewed_event": {
+          "name_in_destination": "cart_viewed_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "catalog": {
+          "name_in_destination": "catalog",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_address_info_submitted_event": {
+          "name_in_destination": "checkout_address_info_submitted_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_attribute_event": {
+          "name_in_destination": "checkout_attribute_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_completed_event": {
+          "name_in_destination": "checkout_completed_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_contact_info_submitted_event": {
+          "name_in_destination": "checkout_contact_info_submitted_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_delivery_option_event": {
+          "name_in_destination": "checkout_delivery_option_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_discount_application_event": {
+          "name_in_destination": "checkout_discount_application_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_event": {
+          "name_in_destination": "checkout_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_line_item_discount_allocation_event": {
+          "name_in_destination": "checkout_line_item_discount_allocation_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_line_item_event": {
+          "name_in_destination": "checkout_line_item_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_line_item_property_event": {
+          "name_in_destination": "checkout_line_item_property_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_shipping_info_submitted_event": {
+          "name_in_destination": "checkout_shipping_info_submitted_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_started_event": {
+          "name_in_destination": "checkout_started_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "checkout_transaction_event": {
+          "name_in_destination": "checkout_transaction_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "collection": {
+          "name_in_destination": "collection",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "collection_metafield": {
+          "name_in_destination": "collection_metafield",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "collection_product": {
+          "name_in_destination": "collection_product",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "collection_viewed_event": {
+          "name_in_destination": "collection_viewed_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "collection_viewed_product_variant_event": {
+          "name_in_destination": "collection_viewed_product_variant_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "company": {
+          "name_in_destination": "company",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "company_contact": {
+          "name_in_destination": "company_contact",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "company_location": {
+          "name_in_destination": "company_location",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "company_location_catalog": {
+          "name_in_destination": "company_location_catalog",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "company_location_tax_exemption": {
+          "name_in_destination": "company_location_tax_exemption",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "customer": {
+          "name_in_destination": "customer",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "customer_address": {
+          "name_in_destination": "customer_address",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "customer_metafield": {
+          "name_in_destination": "customer_metafield",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "customer_segment": {
+          "name_in_destination": "customer_segment",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "customer_segment_member": {
+          "name_in_destination": "customer_segment_member",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "customer_tag": {
+          "name_in_destination": "customer_tag",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "customer_tax_exemption": {
+          "name_in_destination": "customer_tax_exemption",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "customer_visit": {
+          "name_in_destination": "customer_visit",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_allocation": {
+          "name_in_destination": "discount_allocation",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_application": {
+          "name_in_destination": "discount_application",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_automatic_app": {
+          "name_in_destination": "discount_automatic_app",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_automatic_basic": {
+          "name_in_destination": "discount_automatic_basic",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_automatic_bxgy": {
+          "name_in_destination": "discount_automatic_bxgy",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_automatic_free_shipping": {
+          "name_in_destination": "discount_automatic_free_shipping",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_code": {
+          "name_in_destination": "discount_code",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_code_app": {
+          "name_in_destination": "discount_code_app",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_code_basic": {
+          "name_in_destination": "discount_code_basic",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_code_bxgy": {
+          "name_in_destination": "discount_code_bxgy",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_code_free_shipping": {
+          "name_in_destination": "discount_code_free_shipping",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_customer_buys_collection": {
+          "name_in_destination": "discount_customer_buys_collection",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_customer_buys_product": {
+          "name_in_destination": "discount_customer_buys_product",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_customer_buys_product_variant": {
+          "name_in_destination": "discount_customer_buys_product_variant",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_customer_gets_collection": {
+          "name_in_destination": "discount_customer_gets_collection",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_customer_gets_product": {
+          "name_in_destination": "discount_customer_gets_product",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_customer_gets_product_variant": {
+          "name_in_destination": "discount_customer_gets_product_variant",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_customer_segment_selection": {
+          "name_in_destination": "discount_customer_segment_selection",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_customer_selection": {
+          "name_in_destination": "discount_customer_selection",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_destination_selection_country": {
+          "name_in_destination": "discount_destination_selection_country",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_redeem_code": {
+          "name_in_destination": "discount_redeem_code",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "discount_shareable_url": {
+          "name_in_destination": "discount_shareable_url",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "dispute": {
+          "name_in_destination": "dispute",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "Shopify API failed with HTTP error :HTTP 404 Not Found"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "draft_order": {
+          "name_in_destination": "draft_order",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "draft_order_line": {
+          "name_in_destination": "draft_order_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "draft_order_line_tax_line": {
+          "name_in_destination": "draft_order_line_tax_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "draft_order_metafield": {
+          "name_in_destination": "draft_order_metafield",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "draft_order_note_attribute": {
+          "name_in_destination": "draft_order_note_attribute",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "draft_order_tag": {
+          "name_in_destination": "draft_order_tag",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "external_video": {
+          "name_in_destination": "external_video",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "fulfillment": {
+          "name_in_destination": "fulfillment",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "fulfillment_event": {
+          "name_in_destination": "fulfillment_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "fulfillment_order": {
+          "name_in_destination": "fulfillment_order",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "fulfillment_order_fulfillment_hold": {
+          "name_in_destination": "fulfillment_order_fulfillment_hold",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "fulfillment_order_line": {
+          "name_in_destination": "fulfillment_order_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "fulfillment_order_line_item": {
+          "name_in_destination": "fulfillment_order_line_item",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "gift_card": {
+          "name_in_destination": "gift_card",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "inventory_item": {
+          "name_in_destination": "inventory_item",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "inventory_level": {
+          "name_in_destination": "inventory_level",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "inventory_quantity": {
+          "name_in_destination": "inventory_quantity",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "location": {
+          "name_in_destination": "location",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "market": {
+          "name_in_destination": "market",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "market_catalog": {
+          "name_in_destination": "market_catalog",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "market_condition": {
+          "name_in_destination": "market_condition",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "market_condition_company_location": {
+          "name_in_destination": "market_condition_company_location",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "market_condition_location": {
+          "name_in_destination": "market_condition_location",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "market_condition_region": {
+          "name_in_destination": "market_condition_region",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "market_region": {
+          "name_in_destination": "market_region",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "marketing_event": {
+          "name_in_destination": "marketing_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "media": {
+          "name_in_destination": "media",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "media_error": {
+          "name_in_destination": "media_error",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "media_file_error": {
+          "name_in_destination": "media_file_error",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "media_image": {
+          "name_in_destination": "media_image",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "media_source": {
+          "name_in_destination": "media_source",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "media_warning": {
+          "name_in_destination": "media_warning",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "metafield": {
+          "name_in_destination": "metafield",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "model3d": {
+          "name_in_destination": "model_3_d",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order": {
+          "name_in_destination": "order",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_adjustment": {
+          "name_in_destination": "order_adjustment",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_discount_code": {
+          "name_in_destination": "order_discount_code",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_line": {
+          "name_in_destination": "order_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_line_refund": {
+          "name_in_destination": "order_line_refund",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_metafield": {
+          "name_in_destination": "order_metafield",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_note_attribute": {
+          "name_in_destination": "order_note_attribute",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_risk_assessment": {
+          "name_in_destination": "order_risk_assessment",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_risk_fact": {
+          "name_in_destination": "order_risk_fact",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_risk_summary": {
+          "name_in_destination": "order_risk_summary",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_shipping_line": {
+          "name_in_destination": "order_shipping_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_shipping_tax_line": {
+          "name_in_destination": "order_shipping_tax_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_tag": {
+          "name_in_destination": "order_tag",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "order_url_tag": {
+          "name_in_destination": "order_url_tag",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "page_viewed_event": {
+          "name_in_destination": "page_viewed_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "payment_info_submitted_event": {
+          "name_in_destination": "payment_info_submitted_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "payout": {
+          "name_in_destination": "payout",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "Shopify API failed with HTTP error :HTTP 404 Not Found"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_list": {
+          "name_in_destination": "price_list",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_list_price": {
+          "name_in_destination": "price_list_price",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_rule": {
+          "name_in_destination": "price_rule",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_rule_ent_collection": {
+          "name_in_destination": "price_rule_ent_collection",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_rule_ent_country": {
+          "name_in_destination": "price_rule_ent_country",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_rule_ent_product": {
+          "name_in_destination": "price_rule_ent_product",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_rule_ent_variant": {
+          "name_in_destination": "price_rule_ent_variant",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_rule_prereq_collection": {
+          "name_in_destination": "price_rule_prereq_collection",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_rule_prereq_customer": {
+          "name_in_destination": "price_rule_prereq_customer",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_rule_prereq_customer_segment": {
+          "name_in_destination": "price_rule_prereq_customer_segment",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_rule_prereq_product": {
+          "name_in_destination": "price_rule_prereq_product",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "price_rule_prereq_variant": {
+          "name_in_destination": "price_rule_prereq_variant",
+          "enabled": false,
+          "enabled_patch_settings": {
+            "allowed": false,
+            "reason_code": "OTHER",
+            "reason": "This table is marked for deprecation from the source"
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product": {
+          "name_in_destination": "product",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_added_to_cart_event": {
+          "name_in_destination": "product_added_to_cart_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_media": {
+          "name_in_destination": "product_media",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_media_metafield": {
+          "name_in_destination": "product_media_metafield",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_metafield": {
+          "name_in_destination": "product_metafield",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_option": {
+          "name_in_destination": "product_option",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_option_value": {
+          "name_in_destination": "product_option_value",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_publication": {
+          "name_in_destination": "product_publication",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_removed_from_cart_event": {
+          "name_in_destination": "product_removed_from_cart_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_tag": {
+          "name_in_destination": "product_tag",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_variant": {
+          "name_in_destination": "product_variant",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_variant_media": {
+          "name_in_destination": "product_variant_media",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_variant_metafield": {
+          "name_in_destination": "product_variant_metafield",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_variant_option_value": {
+          "name_in_destination": "product_variant_option_value",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "product_viewed_event": {
+          "name_in_destination": "product_viewed_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "publication": {
+          "name_in_destination": "publication",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "refund": {
+          "name_in_destination": "refund",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "return": {
+          "name_in_destination": "return",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "return_exchange_line_item": {
+          "name_in_destination": "return_exchange_line_item",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "return_exchange_line_item_order_line": {
+          "name_in_destination": "return_exchange_line_item_order_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "return_line_item": {
+          "name_in_destination": "return_line_item",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "return_shipping_fee": {
+          "name_in_destination": "return_shipping_fee",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "sale": {
+          "name_in_destination": "sale",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "sale_tax": {
+          "name_in_destination": "sale_tax",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "sales_agreement": {
+          "name_in_destination": "sales_agreement",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "search_result_product_variant_event": {
+          "name_in_destination": "search_result_product_variant_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "search_submitted_event": {
+          "name_in_destination": "search_submitted_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "shop": {
+          "name_in_destination": "shop",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "tax_line": {
+          "name_in_destination": "tax_line",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "tender_transaction": {
+          "name_in_destination": "tender_transaction",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "transaction": {
+          "name_in_destination": "transaction",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "ui_extension_errored_event": {
+          "name_in_destination": "ui_extension_errored_event",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "user": {
+          "name_in_destination": "user",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        },
+        "video": {
+          "name_in_destination": "video",
+          "enabled": true,
+          "enabled_patch_settings": {
+            "allowed": true
+          },
+          "supports_columns_config": true,
+          "supports_history_mode": true
+        }
+      }
+    }
+  },
+  "schema_change_handling": "ALLOW_ALL"
+}

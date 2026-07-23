@@ -1,0 +1,64 @@
+
+# As of 29th March 2025, this is Gemini 2.5 Pro
+# model: gemini
+# model: vertex_ai/claude-3-5-sonnet
+# model: vertex_ai/gemini-2.5-flash-lite
+# model: vertex_ai/gemini-2.5-flash
+# model: vertex_ai/gemini-2.5-pro
+# model: vertex_ai/gemini-3-flash-preview
+# model: vertex_ai/gemini-3-pro-preview
+
+# Ollama models - examples to try
+# model: ollama_chat/codellama
+# model: ollama_chat/codegemma:7b
+# model: ollama_chat/codegemma:2b
+# model: ollama_chat/codestral
+# model: ollama_chat/starcoder2
+# model: ollama_chat/llama3.1
+# model: ollama_chat/deepseek-coder
+# model: ollama_chat/wizardlm2
+# model: ollama_chat/gemma3
+
+# If you want to control the models for each process type
+model: vertex_ai/gemini-3.5-flash
+editor-model: vertex_ai/gemini-3.1-pro-preview
+weak-model: vertex_ai/gemini-3.5-flash
+
+api-key:
+  # Put your specific gemini key here
+  - gemini=
+set-env:
+  - VERTEXAI_PROJECT=wondaris-development-ai
+  # gemini pro 3 requires the global location
+  - VERTEXAI_LOCATION=global
+  # - VERTEXAI_LOCATION=us-central1
+  # us-east5 for Claude - see: https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude#claude-3.5-sonnet
+  # - VERTEXAI_LOCATION=us-east5
+  # Ollama FROM Docker
+  # - OLLAMA_API_BASE=http://host.docker.internal:11434
+  # Ollama native
+  - OLLAMA_API_BASE=http://127.0.0.1:11434
+  # LiteLLM Proxy running locally
+  - LITELLM_PROXY_API_BASE=http://0.0.0.0:4000
+  - LITELLM_PROXY_API_KEY=
+
+deepseek: false
+analytics-disable: true
+
+# Enable notifications
+# notifications: true
+
+# Don't lint - this causes issues with SQL migrations all the time!
+auto-lint: false
+auto-commits: false
+
+read:
+  - .docs/ai_rules.md
+  - .docs/ai_service_context.md
+  - WONDARIS_CONTEXT.md
+
+# for read / write files
+#   - these may be specific task lists or implementation plans that you may want to update
+#   - use to start a session with existing code that you know would be needed as context for a session
+
+# file:
