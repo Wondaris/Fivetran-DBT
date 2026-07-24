@@ -20,9 +20,10 @@
 # model: ollama_chat/gemma3
 
 # If you want to control the models for each process type
-model: vertex_ai/gemini-3.5-flash
+model: vertex_ai/gemini-3.6-flash
+#model: vertex_ai/gemini-3.1-pro-preview
 editor-model: vertex_ai/gemini-3.1-pro-preview
-weak-model: vertex_ai/gemini-3.5-flash
+weak-model: vertex_ai/gemini-3.6-flash
 
 api-key:
   # Put your specific gemini key here
