@@ -1,5 +1,5 @@
 {
-  "tables_to_disable": [
+  "excluded_models": [
     "abandoned_applied_discount",
     "abandoned_checkout_line",
     "abandoned_checkout_tax_line",
@@ -29,7 +29,6 @@
     "checkout_shipping_info_submitted_event",
     "checkout_started_event",
     "checkout_transaction_event",
-    "collection_metafield",
     "collection_viewed_event",
     "collection_viewed_product_variant_event",
     "company",
@@ -37,7 +36,6 @@
     "company_location",
     "company_location_catalog",
     "company_location_tax_exemption",
-    "customer_metafield",
     "customer_segment",
     "customer_segment_member",
     "customer_tax_exemption",
@@ -81,7 +79,6 @@
     "media_source",
     "media_warning",
     "model3d",
-    "order_metafield",
     "order_risk_assessment",
     "order_risk_fact",
     "order_risk_summary",
@@ -102,12 +99,10 @@
     "price_rule_prereq_variant",
     "product_added_to_cart_event",
     "product_media_metafield",
-    "product_metafield",
     "product_option",
     "product_option_value",
     "product_publication",
     "product_removed_from_cart_event",
-    "product_variant_metafield",
     "product_variant_option_value",
     "product_viewed_event",
     "publication",
