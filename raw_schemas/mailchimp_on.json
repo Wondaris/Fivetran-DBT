@@ -1,0 +1,16 @@
+{
+  "included_models": [
+    "automation",
+    "automation_email",
+    "automation_recipient",
+    "automation_recipient_activity",
+    "campaign",
+    "campaign_recipient",
+    "campaign_recipient_activity",
+    "list",
+    "member",
+    "segment",
+    "segment_member",
+    "unsubscribe"
+  ]
+}
