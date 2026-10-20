@@ -1,0 +1,75 @@
+{
+  "title": "Mailchimp Model Inclusion and Exclusion Explanation",
+  "member_vs_customer": {
+    "primary_entity": "member",
+    "explanation": "In Mailchimp's core architecture (Email Marketing & Audience Management), audience contacts are structured as Audience (List) and Member (subscribers). All campaigns, automations, recipient interactions (opens, clicks, bounces), and segmentations link directly to member_id and list_id.",
+    "customer_usage": "The customer table is only populated when a Mailchimp account connects to an E-Commerce store (e.g., Shopify, WooCommerce). The standard dbt package models data around members to remain universal for all Mailchimp users without requiring an e-commerce store integration."
+  },
+  "included_models": {
+    "description": "Tables transformed and aggregated by the dbt package",
+    "models": [
+      "automation",
+      "automation_email",
+      "automation_recipient",
+      "automation_recipient_activity",
+      "campaign",
+      "campaign_recipient",
+      "campaign_recipient_activity",
+      "list",
+      "member",
+      "segment",
+      "segment_member",
+      "unsubscribe"
+    ]
+  },
+  "excluded_models_by_category": {
+    "ecommerce_and_store": {
+      "category_name": "E-Commerce & Store",
+      "description": "Sales and order tables synced from connected e-commerce storefronts",
+      "models": [
+        "cart",
+        "cart_line",
+        "customer",
+        "order_line",
+        "order_promo_code",
+        "orders",
+        "product",
+        "product_variant",
+        "promo_code",
+        "promo_rule",
+        "store"
+      ],
+      "exclusion_reason": "E-Commerce data is typically analyzed directly from the primary source (e.g., dbt_shopify, ERP/OMS systems) rather than through Mailchimp's intermediary integration."
+    },
+    "pre_aggregated_reports": {
+      "category_name": "Pre-aggregated API Reports",
+      "description": "Pre-computed summary reporting tables returned by Mailchimp APIs",
+      "models": [
+        "campaign_click_report",
+        "campaign_report"
+      ],
+      "exclusion_reason": "The dbt package aggregates metrics (sends, opens, clicks, unique_opens, unique_clicks, unsubscribes) directly from granular event records (campaign_recipient, campaign_recipient_activity), ensuring consistent logic, auditability, and customizable rollup windows instead of relying on static API summaries."
+    },
+    "multivariate_ab_testing": {
+      "category_name": "Multivariate / A/B Testing Combinations",
+      "description": "Detailed combination breakdown tables for multivariate email tests",
+      "models": [
+        "campaign_variate_combination",
+        "campaign_variate_combination_unsubscribe"
+      ],
+      "exclusion_reason": "The combination_id is already retained and passed through campaign_recipients and campaign_activities. Creating separate intermediate models for each test combination is generally unnecessary for high-level marketing reporting."
+    },
+    "interests_and_tags": {
+      "category_name": "Interests & Tags",
+      "description": "Auxiliary member interest groups and tagging relations",
+      "models": [
+        "interest",
+        "interest_category",
+        "interest_member",
+        "tags",
+        "tag_member"
+      ],
+      "exclusion_reason": "Audience segmentation is standardized via Segments (segment, segment_member). Member-level tags and custom attributes can be dynamically ingested using the mailchimp__members_pass_through_columns variable."
+    }
+  }
+}

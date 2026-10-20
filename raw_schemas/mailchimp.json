@@ -1,0 +1,327 @@
+{
+    "enable_new_by_default": true,
+    "schemas": {
+        "taidv_mailchimp_79_1790561855": {
+            "name_in_destination": "taidv_mailchimp_79_1790561855",
+            "enabled": true,
+            "tables": {
+                "automation": {
+                    "name_in_destination": "automation",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true
+                },
+                "automation_email": {
+                    "name_in_destination": "automation_email",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "automation"
+                },
+                "automation_recipient": {
+                    "name_in_destination": "automation_recipient",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "automation"
+                },
+                "automation_recipient_activity": {
+                    "name_in_destination": "automation_recipient_activity",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "automation"
+                },
+                "campaign": {
+                    "name_in_destination": "campaign",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true
+                },
+                "campaign_click_report": {
+                    "name_in_destination": "campaign_click_report",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "campaign"
+                },
+                "campaign_recipient": {
+                    "name_in_destination": "campaign_recipient",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "campaign"
+                },
+                "campaign_recipient_activity": {
+                    "name_in_destination": "campaign_recipient_activity",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "campaign"
+                },
+                "campaign_report": {
+                    "name_in_destination": "campaign_report",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "campaign"
+                },
+                "campaign_variate_combination": {
+                    "name_in_destination": "campaign_variate_combination",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "campaign"
+                },
+                "campaign_variate_combination_unsubscribe": {
+                    "name_in_destination": "campaign_variate_combination_unsubscribe",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "campaign"
+                },
+                "cart": {
+                    "name_in_destination": "cart",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "store"
+                },
+                "cart_line": {
+                    "name_in_destination": "cart_line",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "store"
+                },
+                "customer": {
+                    "name_in_destination": "customer",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "store"
+                },
+                "interest": {
+                    "name_in_destination": "interest",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "list"
+                },
+                "interest_category": {
+                    "name_in_destination": "interest_category",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "list"
+                },
+                "interest_member": {
+                    "name_in_destination": "interest_member",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "list"
+                },
+                "list": {
+                    "name_in_destination": "list",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": true,
+                    "supports_history_mode": true
+                },
+                "member": {
+                    "name_in_destination": "member",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": true,
+                    "supports_history_mode": true,
+                    "parent_table": "list"
+                },
+                "order_line": {
+                    "name_in_destination": "order_line",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "store"
+                },
+                "order_promo_code": {
+                    "name_in_destination": "order_promo_code",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "store"
+                },
+                "orders": {
+                    "name_in_destination": "orders",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "store"
+                },
+                "product": {
+                    "name_in_destination": "product",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "store"
+                },
+                "product_variant": {
+                    "name_in_destination": "product_variant",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "store"
+                },
+                "promo_code": {
+                    "name_in_destination": "promo_code",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "store"
+                },
+                "promo_rule": {
+                    "name_in_destination": "promo_rule",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "store"
+                },
+                "segment": {
+                    "name_in_destination": "segment",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "list"
+                },
+                "segment_member": {
+                    "name_in_destination": "segment_member",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "list"
+                },
+                "store": {
+                    "name_in_destination": "store",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true
+                },
+                "tag_member": {
+                    "name_in_destination": "tag_member",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "list"
+                },
+                "tags": {
+                    "name_in_destination": "tags",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": false,
+                    "supports_history_mode": true,
+                    "parent_table": "list"
+                },
+                "unsubscribe": {
+                    "name_in_destination": "unsubscribe",
+                    "enabled": true,
+                    "enabled_patch_settings": {
+                        "allowed": true
+                    },
+                    "supports_columns_config": true,
+                    "supports_history_mode": true
+                }
+            }
+        }
+    },
+    "schema_change_handling": "ALLOW_ALL"
+}

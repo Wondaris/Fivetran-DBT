@@ -1,0 +1,24 @@
+{
+  "excluded_models": [
+    "campaign_click_report",
+    "campaign_report",
+    "campaign_variate_combination",
+    "campaign_variate_combination_unsubscribe",
+    "cart",
+    "cart_line",
+    "customer",
+    "interest",
+    "interest_category",
+    "interest_member",
+    "order_line",
+    "order_promo_code",
+    "orders",
+    "product",
+    "product_variant",
+    "promo_code",
+    "promo_rule",
+    "store",
+    "tag_member",
+    "tags"
+  ]
+}
